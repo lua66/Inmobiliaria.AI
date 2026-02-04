@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Plataforma inmobiliaria</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg,#0f172a,#1e293b);
+  color: white;
+  text-align: center;
+}
+
+/* CABECERA */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 60px;
+}
+
+.title {
+  text-align: center;
+  flex: 1;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.6em;
+}
+
+p {
+  margin: 5px 0 0 0;
+  opacity: 0.9;
+  font-size: 18px;
+}
+
+.logo {
+  height: 100px;
+}
+
+.personaje {
+  height: 180px;
+}
+
+/* TARJETA */
+.card {
+  max-width: 900px;
+  margin: 30px auto;
+  background: rgba(255,255,255,0.95);
+  color: black;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+button {
+  width: 100%;
+  padding: 20px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 14px;
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.buy {
+  background: #0ea5e9;
+  color: white;
+}
+
+.sell {
+  background: #16a34a;
+  color: white;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+/* FOOTER */
+footer {
+  margin: 40px 0 20px 0;
+  opacity: 0.6;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- CABECERA -->
+<div class="header">
+
+  <img src="logo.png" class="logo" alt="Logo">
+
+  <div class="title">
+    <h1>Plataforma inmobiliaria inteligente</h1>
+    <p>Conectamos compradores y propietarios automáticamente</p>
+  </div>
+
+  <img src="personaje.png" class="personaje" alt="Personaje">
+
+</div>
+
+<!-- TARJETA -->
+<div class="card">
+
+<button class="buy" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd79qQf0Uk4AZHtN0c9cRKsWo_FVLfm_MfXDBKyLjBrBc-mSA/viewform?usp=header','_blank')">
+Compro vivienda
+</button>
+
+<button class="sell" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSchc-KqodiryI4wgCo0E7EcNCM5ulvKKnoFeVcL1aWFJ_8qkg/viewform?usp=header','_blank')">
+Quiero vender mi inmueble
+</button>
+
+</div>
+
+<footer>
+© 2026 Plataforma Inmobiliaria Inteligente · Todos los derechos reservados
+</footer>
+
+<!-- ESTRELLAS -->
+<div style="
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  background: rgba(0,0,0,0.4);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #facc15;
+  text-align:right;
+">
+
+Agencia ★★★★☆ 4.3  
+<br>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfcBIhF4GUSZKGRVALDiPS08dGv-FpNDNBvmW-jEyx6uM_DLA/viewform?usp=header" target="_blank"
+style="color:white; text-decoration:none; font-size:12px;">
+Valorar la app
+</a>
+
+</div>
+
+</body>
+</html>
