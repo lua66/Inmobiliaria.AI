@@ -200,9 +200,136 @@ Valorar la app
 </a>
 
 </div>
+<!-- BOTÓN IA -->
+<div id="aiButton" onclick="toggleChat()">🤖</div>
+
+<div id="aiChat">
+  <div id="aiHeader">
+    Asistente Inmobiliario
+    <span onclick="toggleChat()" style="cursor:pointer;">✕</span>
+  </div>
+
+  <div id="aiMessages"></div>
+
+  <div id="aiInputArea">
+    <input id="aiInput" placeholder="Pregunta sobre inmuebles..." onkeydown="if(event.key==='Enter') sendMessage()">
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
+</div>
+
+<style>
+#aiButton {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  font-size: 28px;
+  background: #0ea5e9;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+#aiChat {
+  position: fixed;
+  bottom: 140px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background: white;
+  border-radius: 12px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  font-family: Arial;
+}
+
+#aiHeader {
+  background: #0ea5e9;
+  color: white;
+  padding: 10px;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#aiMessages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+#aiInputArea {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+#aiInput {
+  flex: 1;
+  padding: 8px;
+  border: none;
+}
+
+#aiInputArea button {
+  background: #0ea5e9;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+}
+</style>
+
+<script>
+function toggleChat() {
+  const chat = document.getElementById("aiChat");
+  chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+}
+
+function sendMessage() {
+  const input = document.getElementById("aiInput");
+  const text = input.value.trim();
+  if (!text) return;
+
+  addMessage("Tú", text);
+  input.value = "";
+
+  setTimeout(() => {
+    addMessage("IA", responder(text));
+  }, 500);
+}
+
+function addMessage(user, text) {
+  const msg = document.getElementById("aiMessages");
+  msg.innerHTML += `<b>${user}:</b> ${text}<br><br>`;
+  msg.scrollTop = msg.scrollHeight;
+}
+
+function responder(text) {
+  const t = text.toLowerCase();
+
+  if (t.includes("quien eres") || t.includes("quién eres"))
+    return "Soy tu compañero guía para temas inmobiliarios. Estoy aquí para ayudarte.";
+
+  if (t.includes("vender"))
+    return "Para vender rápido es clave precio correcto y visibilidad. Inscribirte en la base de datos aumenta tus probabilidades.";
+
+  if (t.includes("comprar"))
+    return "El sistema conecta compradores con propiedades que encajan contigo. Rellena el formulario y el algoritmo trabaja por ti.";
+
+  if (t.includes("precio"))
+    return "El precio debe alinearse con mercado real. Puedo ayudarte a entender tendencias generales.";
+
+  if (t.includes("tiempo"))
+    return "El tiempo de venta depende de precio, demanda y zona. El algoritmo acelera coincidencias.";
+
+  return "Puedo ayudarte con compra, venta, precios y procesos inmobiliarios. Pregúntame algo relacionado.";
+}
+</script>
 
 </body>
 </html>
+
 
 
 
