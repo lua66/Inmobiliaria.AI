@@ -229,6 +229,12 @@ Valorar la app
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+#aiButton:hover {
+  box-shadow: 0 0 20px #38bdf8, 0 0 40px rgba(56,189,248,0.6);
+  transform: scale(1.15);
 }
 
 #aiChat {
@@ -323,12 +329,14 @@ function responder(text) {
   if (t.includes("tiempo"))
     return "El tiempo de venta depende de precio, demanda y zona. El algoritmo acelera coincidencias.";
 
-  return "Puedo ayudarte con compra, venta, precios y procesos inmobiliarios. Pregúntame algo relacionado.";
+  return "Puedo ayudarte con compra, venta y procesos inmobiliarios. Pregúntame algo relacionado.";
 }
 </script>
 
+
 </body>
 </html>
+
 
 
 
