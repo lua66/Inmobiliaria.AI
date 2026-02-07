@@ -1,22 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKMVGT148C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-WKMVGT148C');
-</script>
 <meta charset="UTF-8">
-  
-<title>Inmobiliaria AI | Compradores y Propietarios Conectados</title>
+<title>Inmobiliaria AI</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:image" content="https://lua66.github.io/Inmobiliaria.AI/personaje.png">
-  <link rel="icon" href="logo.png">
-
 
 <style>
 body {
@@ -36,28 +23,15 @@ body {
 }
 
 .title {
-  text-align: center;
   flex: 1;
+  text-align: center;
 }
 
-h1 {
-  margin: 0;
-  font-size: 2.6em;
-}
+.logo { height: 100px; }
+.personaje { height: 180px; }
 
-p {
-  margin: 5px 0 0 0;
-  opacity: 0.9;
-  font-size: 18px;
-}
-
-.logo {
-  height: 100px;
-}
-
-.personaje {
-  height: 180px;
-}
+h1 { margin: 0; font-size: 2.6em; }
+p { margin: 5px 0; opacity: 0.9; }
 
 /* TARJETA */
 .card {
@@ -81,19 +55,10 @@ button {
   transition: 0.3s;
 }
 
-.buy {
-  background: #0ea5e9;
-  color: white;
-}
+.buy { background: #0ea5e9; color: white; }
+.sell { background: #16a34a; color: white; }
 
-.sell {
-  background: #16a34a;
-  color: white;
-}
-
-button:hover {
-  transform: scale(1.03);
-}
+button:hover { transform: scale(1.03); }
 
 /* FOOTER */
 footer {
@@ -101,123 +66,8 @@ footer {
   opacity: 0.6;
   font-size: 14px;
 }
-/* RESPONSIVE MÓVIL */
-@media (max-width: 768px) {
 
-  .header {
-    flex-direction: column;
-    padding: 20px;
-  }
-
-  .logo {
-    height: 70px;
-    margin-bottom: 10px;
-  }
-
-  .personaje {
-    height: 120px;
-    margin-top: 10px;
-  }
-
-  h1 {
-    font-size: 1.6em;
-  }
-
-  p {
-    font-size: 14px;
-  }
-
-  .card {
-    margin: 20px;
-    padding: 25px;
-  }
-
-  button {
-    font-size: 18px;
-    padding: 16px;
-  }
-}
-
-</style>
-</head>
-
-<body>
-  
-<!-- CABECERA -->
-<div class="header">
-
-  <img src="logo.png" class="logo" alt="Logo">
-
-  <div class="title">
-    <h1>Bienvenidos 📮 a 
-      Plataforma inmobiliaria inteligente</h1>
-    <p>Conectamos compradores y propietarios automáticamente</p>
-  </div>
-
-  <img src="personaje.png" class="personaje" alt="Personaje">
-
-</div>
-
-<!-- TARJETA -->
-<div class="card">
-
-<button class="buy" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd79qQf0Uk4AZHtN0c9cRKsWo_FVLfm_MfXDBKyLjBrBc-mSA/viewform?usp=header','_blank')">
-Compro vivienda
-</button>
-
-<button class="sell" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSchc-KqodiryI4wgCo0E7EcNCM5ulvKKnoFeVcL1aWFJ_8qkg/viewform?usp=header','_blank')">
-Quiero vender mi inmueble
-</button>
-
-</div>
-
-<footer>
-© 2026 Plataforma Inmobiliaria Inteligente · Todos los derechos reservados
-<br>
-<a href="privacidad.html" style="color:white;">Privacidad</a> |
-<a href="aviso-legal.html" style="color:white;">Aviso legal</a>
-</footer>
-
-<!-- ESTRELLAS -->
-<div style="
-  position: fixed;
-  bottom: 10px;
-  right: 15px;
-  background: rgba(0,0,0,0.4);
-  padding: 8px 12px;
-  border-radius: 10px;
-  font-size: 13px;
-  color: #facc15;
-  text-align:right;
-">
-
-Agencia ★★★★☆ 4.3  
-<br>
-
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSfcBIhF4GUSZKGRVALDiPS08dGv-FpNDNBvmW-jEyx6uM_DLA/viewform?usp=header" target="_blank"
-style="color:white; text-decoration:none; font-size:12px;">
-Valorar la app
-</a>
-
-</div>
-<!-- BOTÓN IA -->
-<div id="aiButton" onclick="toggleChat()">🤖</div>
-
-<div id="aiChat">
-  <div id="aiHeader">
-    Asistente Inmobiliario
-    <span onclick="toggleChat()" style="cursor:pointer;">✕</span>
-  </div>
-
-  <div id="aiMessages"></div>
-
-  <div id="aiInputArea">
-    <input id="aiInput" placeholder="Pregunta sobre inmuebles..." onkeydown="if(event.key==='Enter') sendMessage()">
-    <button onclick="sendMessage()">Enviar</button>
-  </div>
-</div>
-
-<style>
+/* BOTÓN IA */
 #aiButton {
   position: fixed;
   bottom: 80px;
@@ -265,6 +115,7 @@ Valorar la app
   padding: 10px;
   overflow-y: auto;
   font-size: 14px;
+  color: black;
 }
 
 #aiInputArea {
@@ -284,12 +135,91 @@ Valorar la app
   border: none;
   padding: 8px 12px;
 }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .logo { height: 70px; }
+  .personaje { height: 120px; }
+
+  h1 { font-size: 1.6em; }
+  p { font-size: 14px; }
+
+  .card {
+    margin: 20px;
+    padding: 25px;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 16px;
+  }
+}
 </style>
+</head>
+
+<body>
+
+<div class="header">
+  <img src="logo.png" class="logo">
+  <div class="title">
+    <h1>Plataforma inmobiliaria inteligente</h1>
+    <p>Conectamos compradores y propietarios automáticamente</p>
+  </div>
+  <img src="personaje.png" class="personaje">
+</div>
+
+<div class="card">
+  <button class="buy" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd79qQf0Uk4AZHtN0c9cRKsWo_FVLfm_MfXDBKyLjBrBc-mSA/viewform?usp=header')">Busco vivienda</button>
+  <button class="sell" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSchc-KqodiryI4wgCo0E7EcNCM5ulvKKnoFeVcL1aWFJ_8qkg/viewform?usp=header')">Quiero vender mi inmueble</button>
+</div>
+
+
+
+<footer>
+© 2026 Plataforma Inmobiliaria Inteligente  
+<br>
+<a href="privacidad.html" style="color:white;">Privacidad</a> |
+<a href="aviso-legal.html" style="color:white;">Aviso legal</a>
+</footer>
+
+<!-- ESTRELLAS -->
+<div style="
+position: fixed;
+bottom: 10px;
+right: 15px;
+background: rgba(0,0,0,0.4);
+padding: 8px 12px;
+border-radius: 10px;
+font-size: 13px;
+color: #facc15;">
+Agencia ★★★★☆ 4.3
+</div>
+
+<!-- BOTÓN IA -->
+<div id="aiButton" onclick="toggleChat()">🤖</div>
+
+<div id="aiChat">
+  <div id="aiHeader">
+    Asistente Inmobiliario
+    <span onclick="toggleChat()">✕</span>
+  </div>
+  <div id="aiMessages"></div>
+  <div id="aiInputArea">
+    <input id="aiInput" placeholder="Pregunta inmobiliaria..." onkeydown="if(event.key==='Enter') sendMessage()">
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
+</div>
 
 <script>
 function toggleChat() {
   const chat = document.getElementById("aiChat");
   chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+  chat.style.flexDirection = "column";
 }
 
 function sendMessage() {
@@ -300,9 +230,7 @@ function sendMessage() {
   addMessage("Tú", text);
   input.value = "";
 
-  setTimeout(() => {
-    addMessage("IA", responder(text));
-  }, 500);
+  setTimeout(() => addMessage("IA", responder(text)), 500);
 }
 
 function addMessage(user, text) {
@@ -315,36 +243,17 @@ function responder(text) {
   const t = text.toLowerCase();
 
   if (t.includes("quien eres") || t.includes("quién eres"))
-    return "Soy tu compañero guía para temas inmobiliarios. Estoy aquí para ayudarte.";
+    return "Soy tu compañero guía para temas inmobiliarios.";
 
   if (t.includes("vender"))
-    return "Para vender rápido es clave precio correcto y visibilidad. Inscribirte en la base de datos aumenta tus probabilidades.";
+    return "Para vender rápido necesitas precio correcto y visibilidad.";
 
   if (t.includes("comprar"))
-    return "El sistema conecta compradores con propiedades que encajan contigo. Rellena el formulario y el algoritmo trabaja por ti.";
+    return "El sistema conecta compradores con viviendas compatibles.";
 
-  if (t.includes("precio"))
-    return "El precio debe alinearse con mercado real. Puedo ayudarte a entender tendencias generales.";
-
-  if (t.includes("tiempo"))
-    return "El tiempo de venta depende de precio, demanda y zona. El algoritmo acelera coincidencias.";
-
-  return "Puedo ayudarte con compra, venta y procesos inmobiliarios. Pregúntame algo relacionado.";
+  return "Puedo ayudarte con temas inmobiliarios.";
 }
 </script>
 
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
