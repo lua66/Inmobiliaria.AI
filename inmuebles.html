@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mis Inmuebles | Plataforma Inmobiliaria Inteligente</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0f172a;
+  color:white;
+}
+
+.wrapper{
+  max-width:1200px;
+  margin:40px auto;
+  padding:20px;
+}
+
+h1{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:white;
+  color:#1e293b;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:20px;
+}
+
+.price{
+  font-size:22px;
+  font-weight:bold;
+  color:#0ea5e9;
+  margin-bottom:10px;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:#16a34a;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+button:hover{
+  background:#15803d;
+}
+
+.volver{
+  display:block;
+  margin:40px auto 0;
+  background:#64748b;
+  width:200px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<h1>Inmuebles disponibles</h1>
+
+<div class="grid">
+
+<div class="card">
+<img src="img-Granollers.png" alt="Piso en Granollers">
+
+<div class="card-content">
+<div class="price">280.000 €</div>
+<p>Piso de 3 habitaciones en zona céntrica. Ciudad Granollers</p>
+<button onclick="window.open('https://wa.me/34608180231')">
+Solicitar información
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="img-canetdemar.png" alt="Local comercial en Canet de Mar">
+
+<div class="card-content">
+<div class="price">250.000 €</div>
+<p>Edificio local comercial. Ubicado en Canet de Mar.</p>
+<button onclick="window.open('https://wa.me/34608180231')">
+Solicitar información
+</button>
+</div>
+</div>
+
+</div>
+
+<button class="volver" onclick="window.location.href='index.html'">
+Volver al inicio
+</button>
+
+</div>
+
+</body>
+</html>
