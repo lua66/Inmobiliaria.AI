@@ -67,75 +67,6 @@ footer {
   font-size: 14px;
 }
 
-/* BOTÓN IA */
-#aiButton {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  font-size: 28px;
-  background: #0ea5e9;
-  color: white;
-  padding: 12px 16px;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
-}
-
-#aiButton:hover {
-  box-shadow: 0 0 20px #38bdf8, 0 0 40px rgba(56,189,248,0.6);
-  transform: scale(1.15);
-}
-
-#aiChat {
-  position: fixed;
-  bottom: 140px;
-  right: 20px;
-  width: 300px;
-  height: 400px;
-  background: white;
-  border-radius: 12px;
-  display: none;
-  flex-direction: column;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  font-family: Arial;
-}
-
-#aiHeader {
-  background: #0ea5e9;
-  color: white;
-  padding: 10px;
-  border-radius: 12px 12px 0 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-#aiMessages {
-  flex: 1;
-  padding: 10px;
-  overflow-y: auto;
-  font-size: 14px;
-  color: black;
-}
-
-#aiInputArea {
-  display: flex;
-  border-top: 1px solid #ddd;
-}
-
-#aiInput {
-  flex: 1;
-  padding: 8px;
-  border: none;
-}
-
-#aiInputArea button {
-  background: #0ea5e9;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-}
-
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .header {
@@ -174,17 +105,18 @@ footer {
 </div>
 
 <div class="card">
-  <button class="buy" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd79qQf0Uk4AZHtN0c9cRKsWo_FVLfm_MfXDBKyLjBrBc-mSA/viewform?usp=header')">Busco vivienda</button>
+  <button class="buy" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd79qQf0Uk4AZHtN0c9cRKsWo_FVLfm_MfXDBKyLjBrBc-mSA/viewform?usp=header')">
+    Busco vivienda
+  </button>
   
-  <button class="sell" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSchc-KqodiryI4wgCo0E7EcNCM5ulvKKnoFeVcL1aWFJ_8qkg/viewform?usp=header')">Quiero vender mi inmueble</button>
+  <button class="sell" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSchc-KqodiryI4wgCo0E7EcNCM5ulvKKnoFeVcL1aWFJ_8qkg/viewform?usp=header')">
+    Quiero vender mi inmueble
+  </button>
 
   <button style="background:#f59e0b; color:white;" onclick="window.location.href='simulador-hipoteca.html'">
     Simular mi hipoteca
   </button>
 </div>
-
-
-
 
 <footer>
 © 2026 Plataforma Inmobiliaria Inteligente  
@@ -205,61 +137,6 @@ font-size: 13px;
 color: #facc15;">
 Agencia ★★★★☆ 4.3
 </div>
-
-<!-- BOTÓN IA -->
-<div id="aiButton" onclick="toggleChat()">🤖</div>
-
-<div id="aiChat">
-  <div id="aiHeader">
-    Asistente Inmobiliario
-    <span onclick="toggleChat()">✕</span>
-  </div>
-  <div id="aiMessages"></div>
-  <div id="aiInputArea">
-    <input id="aiInput" placeholder="Pregunta inmobiliaria..." onkeydown="if(event.key==='Enter') sendMessage()">
-    <button onclick="sendMessage()">Enviar</button>
-  </div>
-</div>
-
-<script>
-function toggleChat() {
-  const chat = document.getElementById("aiChat");
-  chat.style.display = chat.style.display === "flex" ? "none" : "flex";
-  chat.style.flexDirection = "column";
-}
-
-function sendMessage() {
-  const input = document.getElementById("aiInput");
-  const text = input.value.trim();
-  if (!text) return;
-
-  addMessage("Tú", text);
-  input.value = "";
-
-  setTimeout(() => addMessage("IA", responder(text)), 500);
-}
-
-function addMessage(user, text) {
-  const msg = document.getElementById("aiMessages");
-  msg.innerHTML += `<b>${user}:</b> ${text}<br><br>`;
-  msg.scrollTop = msg.scrollHeight;
-}
-
-function responder(text) {
-  const t = text.toLowerCase();
-
-  if (t.includes("quien eres") || t.includes("quién eres"))
-    return "Soy tu compañero guía para temas inmobiliarios.";
-
-  if (t.includes("vender"))
-    return "Para vender rápido necesitas precio correcto y visibilidad.";
-
-  if (t.includes("comprar"))
-    return "El sistema conecta compradores con viviendas compatibles.";
-
-  return "Puedo ayudarte con temas inmobiliarios.";
-}
-</script>
 
 </body>
 </html>
