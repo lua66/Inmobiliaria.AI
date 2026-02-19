@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Simulador Hipoteca | Plataforma Inmobiliaria Inteligente</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0f172a;
+  color:white;
+}
+
+.wrapper{
+  max-width:1250px;
+  margin:50px auto;
+  padding:20px;
+}
+
+h1{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap:30px;
+}
+
+.card{
+  background:white;
+  color:#1e293b;
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.4);
+}
+
+.section{ margin-bottom:20px; }
+
+label{
+  font-weight:bold;
+  display:block;
+  margin-bottom:8px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid #cbd5e1;
+  font-size:16px;
+}
+
+button{
+  width:100%;
+  padding:15px;
+  margin-top:15px;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  background:#0ea5e9;
+  color:white;
+  cursor:pointer;
+}
+
+button:hover{ transform:scale(1.03); }
+
+.volver{ background:#64748b; }
+
+.result-card{
+  background:#f1f5f9;
+  padding:25px;
+  border-radius:16px;
+  margin-bottom:20px;
+}
+
+.big-number{
+  font-size:42px;
+  font-weight:bold;
+  color:#0ea5e9;
+  min-height:48px;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  margin:10px 0;
+}
+
+.bar{
+  height:18px;
+  border-radius:10px;
+  background:#e2e8f0;
+  overflow:hidden;
+  margin-top:20px;
+  margin-bottom:35px;
+}
+
+.grafico-bar{
+  display:flex;
+  height:22px;
+  border-radius:12px;
+  overflow:hidden;
+  background:#e2e8f0;
+  margin-bottom:10px;
+}
+
+.parte{ transition:width 0.8s ease; }
+.ahorro{ background:#16a34a; }
+.capital{ background:#0ea5e9; }
+.interes{ background:#0284c7; }
+
+.analisis-box{
+  background:#e0f2fe;
+  color:#0c4a6e;
+  padding:18px;
+  border-radius:14px;
+  margin-bottom:25px;
+  font-size:15px;
+}
+
+.cta-box{
+  background:#f8fafc;
+  padding:22px;
+  border-radius:14px;
+  margin-top:25px;
+  text-align:center;
+}
+
+.contacto-btn{
+  background:#16a34a;
+  font-weight:bold;
+  padding:16px;
+}
+
+.contacto-btn:hover{
+  background:#15803d;
+}
+
+@media(max-width:900px){
+  .grid{ grid-template-columns:1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+<h1>Simulador de Hipoteca</h1>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="section">
+<label>Precio del inmueble (€)</label>
+<input type="text" id="precio" inputmode="numeric" placeholder="Ej: 200.000">
+</div>
+
+<div class="section">
+<label>Ahorro aportado (€)</label>
+<input type="text" id="entrada" inputmode="numeric" placeholder="Ej: 70.000">
+</div>
+
+<div class="section">
+<label>Interés anual (%)</label>
+<input type="number" id="interes" placeholder="Ej: 3">
+</div>
+
+<div class="section">
+<label>Plazo en años</label>
+<input type="number" id="anos" placeholder="Ej: 30">
+</div>
+
+<button onclick="calcular()">Calcular</button>
+<button class="volver" onclick="window.location.href='index.html'">Volver</button>
+
+</div>
+
+<div class="card">
+
+<div class="result-card">
+Tu cuota mensual
+<div class="big-number" id="cuota"></div>
+</div>
+
+<div class="row"><span>Importe hipoteca</span><span id="prestamo"></span></div>
+<div class="row"><span>Total intereses</span><span id="intereses"></span></div>
+<div class="row"><span>Total a pagar</span><span id="total"></span></div>
+
+<div class="bar"><div id="barra" style="width:0%; height:100%; background:#0ea5e9;"></div></div>
+
+<div class="grafico-bar">
+<div class="parte ahorro" id="parteAhorro" style="width:0%"></div>
+<div class="parte capital" id="parteCapital" style="width:0%"></div>
+<div class="parte interes" id="parteInteres" style="width:0%"></div>
+</div>
+
+<div id="analisisBox" class="analisis-box"></div>
+
+<div class="cta-box">
+<h3>¿Quieres saber si el banco aprobaría esta operación?</h3>
+<p>Rellena el formulario completo y revisaremos tu caso de forma personalizada.</p>
+
+<button class="contacto-btn" onclick="irFormulario()">
+Quiero que revises mi caso
+</button>
+
+<button style="background:#0ea5e9; margin-top:15px;" onclick="window.open('https://wa.me/34608180231')">
+Prefiero hablar ahora por WhatsApp
+</button>
+</div>
+
+</div>
+</div>
+</div>
+
+<script>
+
+const URL_FORMULARIO="https://docs.google.com/forms/d/e/1FAIpQLSd79qQf0Uk4AZHtN0c9cRKsWo_FVLfm_MfXDBKyLjBrBc-mSA/viewform?usp=header";
+
+function irFormulario(){
+window.open(URL_FORMULARIO,"_blank");
+}
+
+function fmtMilesES(num){
+return new Intl.NumberFormat("es-ES",{maximumFractionDigits:0}).format(num);
+}
+
+function fmtEUR(num){
+return new Intl.NumberFormat("es-ES",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(num);
+}
+
+function parseNumero(text){
+if(!text) return NaN;
+return Number(text.toString().replace(/[^\d]/g,""));
+}
+
+function attachMask(id){
+const el=document.getElementById(id);
+if(!el) return;
+el.addEventListener("input",function(){
+const valor=parseNumero(el.value);
+el.value=isFinite(valor)?fmtMilesES(valor):"";
+});
+}
+
+attachMask("precio");
+attachMask("entrada");
+
+function calcular(){
+const precio=parseNumero(document.getElementById("precio").value);
+const entrada=parseNumero(document.getElementById("entrada").value);
+const interes=Number(document.getElementById("interes").value);
+const anos=Number(document.getElementById("anos").value);
+
+if(isNaN(precio)||precio<=0||isNaN(entrada)||entrada<0||isNaN(interes)||interes<0||isNaN(anos)||anos<=0){
+alert("Completa correctamente los datos.");
+return;
+}
+
+const prestamo=precio-entrada;
+const meses=anos*12;
+const interesMensual=(interes/100)/12;
+
+let cuota;
+if(interesMensual===0){
+cuota=prestamo/meses;
+}else{
+const pow=Math.pow(1+interesMensual,meses);
+cuota=prestamo*(interesMensual*pow)/(pow-1);
+}
+
+const totalPagado=cuota*meses;
+const totalIntereses=totalPagado-prestamo;
+
+document.getElementById("cuota").innerText=fmtEUR(cuota);
+document.getElementById("prestamo").innerText=fmtEUR(prestamo);
+document.getElementById("intereses").innerText=fmtEUR(totalIntereses);
+document.getElementById("total").innerText=fmtEUR(totalPagado);
+
+document.getElementById("barra").style.width=(prestamo/precio)*100+"%";
+
+const totalOperacion=entrada+prestamo+totalIntereses;
+document.getElementById("parteAhorro").style.width=(entrada/totalOperacion)*100+"%";
+document.getElementById("parteCapital").style.width=(prestamo/totalOperacion)*100+"%";
+document.getElementById("parteInteres").style.width=(totalIntereses/totalOperacion)*100+"%";
+
+const porcentajeFinanciado = (prestamo/precio)*100;
+const ratioEsfuerzo = (cuota / (prestamo/meses*meses/anos)) || 0;
+
+let mensaje = "";
+
+/* Análisis por porcentaje financiado */
+if(porcentajeFinanciado <= 70){
+  mensaje += "✔ Financiación del " + porcentajeFinanciado.toFixed(0) + "% del inmueble. Perfil sólido y buena posición frente al banco.\n\n";
+}
+else if(porcentajeFinanciado <= 80){
+  mensaje += "ℹ Financiación del " + porcentajeFinanciado.toFixed(0) + "%. Operación estándar. El banco evaluará estabilidad laboral y endeudamiento.\n\n";
+}
+else{
+  mensaje += "⚠ Financiación del " + porcentajeFinanciado.toFixed(0) + "%. Nivel elevado. El banco exigirá mayor solvencia y garantías.\n\n";
+}
+
+/* Análisis coste total */
+const porcentajeIntereses = (totalIntereses/prestamo)*100;
+
+mensaje += "En total pagarías un " + porcentajeIntereses.toFixed(0) + "% adicional en intereses sobre el capital solicitado.\n\n";
+
+if(anos >= 30){
+  mensaje += "El plazo de 30 años reduce la cuota mensual pero aumenta considerablemente el coste total en intereses.";
+} else if(anos <= 20){
+  mensaje += "Un plazo corto reduce intereses totales, aunque incrementa la cuota mensual.";
+}
+
+document.getElementById("analisisBox").innerText = mensaje;
+
+}
+
+</script>
+
+</body>
+</html>
