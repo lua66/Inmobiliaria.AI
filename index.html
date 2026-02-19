@@ -2,10 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Red Inmobiliaria Inteligente</title>
-<link rel="icon" type="image/png" href="/logo.png">
+<title>Inmobiliaria AI</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="La red privada donde compradores y propietarios conectan con intención real antes de salir al mercado.">
 
 <style>
 body {
@@ -170,16 +168,23 @@ footer {
   <img src="logo.png" class="logo">
   <div class="title">
     <h1>Plataforma inmobiliaria inteligente</h1>
-    <p>Conectamos compradores y propietarios automáticamente,
-      Donde compradores y vendedores dejan de buscar… y empiezan a coincidir.</p>
+    <p>Conectamos compradores y propietarios automáticamente</p>
   </div>
   <img src="personaje.png" class="personaje">
 </div>
 
 <div class="card">
   <button class="buy" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd79qQf0Uk4AZHtN0c9cRKsWo_FVLfm_MfXDBKyLjBrBc-mSA/viewform?usp=header')">Busco vivienda</button>
+  
   <button class="sell" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSchc-KqodiryI4wgCo0E7EcNCM5ulvKKnoFeVcL1aWFJ_8qkg/viewform?usp=header')">Quiero vender mi inmueble</button>
+
+  <button style="background:#f59e0b; color:white;" onclick="window.location.href='simulador-hipoteca.html'">
+    Simular mi hipoteca
+  </button>
 </div>
+
+
+
 
 <footer>
 © 2026 Plataforma Inmobiliaria Inteligente  
@@ -188,6 +193,7 @@ footer {
 <a href="aviso-legal.html" style="color:white;">Aviso legal</a>
 </footer>
 
+<!-- ESTRELLAS -->
 <div style="
 position: fixed;
 bottom: 10px;
@@ -200,6 +206,7 @@ color: #facc15;">
 Agencia ★★★★☆ 4.3
 </div>
 
+<!-- BOTÓN IA -->
 <div id="aiButton" onclick="toggleChat()">🤖</div>
 
 <div id="aiChat">
@@ -256,4 +263,3 @@ function responder(text) {
 
 </body>
 </html>
-
