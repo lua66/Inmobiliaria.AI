@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Coincidencias activas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(120deg,#0f172a,#1e293b);
+  color:white;
+}
+
+.header{
+  text-align:center;
+  padding:30px 20px 10px;
+}
+
+.header h1{
+  margin:0;
+  font-size:2.2em;
+}
+
+.header p{
+  opacity:.85;
+  margin-top:8px;
+}
+
+/* CONTENEDOR */
+.wrap{
+  max-width:1000px;
+  margin:20px auto 60px;
+  padding:0 20px;
+}
+
+/* TARJETAS */
+.card{
+  background:white;
+  color:#111;
+  border-radius:18px;
+  padding:22px;
+  margin:14px 0;
+  cursor:pointer;
+  transition:.25s;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+  border-left:6px solid #16a34a;
+}
+
+.card:hover{
+  transform:translateY(-4px) scale(1.01);
+  box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+.badge{
+  display:inline-block;
+  background:#16a34a;
+  color:white;
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:20px;
+  margin-bottom:8px;
+}
+
+.row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:10px;
+  font-size:14px;
+}
+
+.row span{
+  background:#f1f5f9;
+  padding:6px 10px;
+  border-radius:8px;
+}
+
+/* BOTÓN */
+.actions{
+  margin-top:30px;
+}
+
+.btn{
+  width:100%;
+  padding:18px;
+  margin:10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.btn-back{
+  background:#64748b;
+  color:white;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .header h1{font-size:1.6em;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>🔎 Compradores activos en tu zona</h1>
+  <p>Estos clientes podrían encajar con tu vivienda</p>
+</div>
+
+<div class="wrap">
+
+  <!-- LEAD 1 -->
+  <div class="card" onclick="abrirFormulario()">
+    <div class="badge">Verificado</div>
+    <h3>Christian Torres</h3>
+    <div class="row">
+      <span>📍 Montcada i Reixac</span>
+      <span>💰 Hasta 800€</span>
+      <span>🏠 3 habitaciones</span>
+      <span>🏦 Financiación: Sí</span>
+      <span>⚡ Urgencia: Alta</span>
+    </div>
+  </div>
+
+  <!-- LEAD 2 -->
+  <div class="card" onclick="abrirFormulario()">
+    <div class="badge">Verificado</div>
+    <h3>Evelinda</h3>
+    <div class="row">
+      <span>📍 Sabadell</span>
+      <span>💰 100.000 €</span>
+      <span>🏠 2ª mano</span>
+      <span>🏦 Financiación: Sí</span>
+      <span>⚡ Urgencia: Media</span>
+    </div>
+  </div>
+
+  <!-- LEAD 3 -->
+  <div class="card" onclick="abrirFormulario()">
+    <div class="badge">Verificado</div>
+    <h3>Miguel</h3>
+    <div class="row">
+      <span>📍 Montcada</span>
+      <span>💰 120.000 €</span>
+      <span>🏠 Piso</span>
+      <span>🏦 Financiación: No</span>
+      <span>⚡ Urgencia: Alta</span>
+    </div>
+  </div>
+
+  <!-- LEAD 4 -->
+  <div class="card" onclick="abrirFormulario()">
+    <div class="badge">Verificado</div>
+    <h3>Arleth</h3>
+    <div class="row">
+      <span>📍 Barcelona</span>
+      <span>💰 130.000 €</span>
+      <span>🏠 Compra</span>
+      <span>🏦 Financiación: Sí</span>
+      <span>⚡ Urgencia: Alta</span>
+    </div>
+  </div>
+
+  <!-- LEAD 5 -->
+  <div class="card" onclick="abrirFormulario()">
+    <div class="badge">Verificado</div>
+    <h3>Marlon</h3>
+    <div class="row">
+      <span>📍 Barcelona</span>
+      <span>💰 300.000 €</span>
+      <span>🏠 Piso/Casa</span>
+      <span>🏦 Financiación: Sí</span>
+      <span>⚡ Urgencia: Alta</span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-back" onclick="window.location.href='index.html'">
+      Volver
+    </button>
+  </div>
+
+</div>
+
+<script>
+const FORM_VENDEDOR = "https://docs.google.com/forms/d/e/1FAIpQLSchc-KqodiryI4wgCo0E7EcNCM5ulvKKnoFeVcL1aWFJ_8qkg/viewform?usp=header";
+
+function abrirFormulario(){
+  window.open(FORM_VENDEDOR,"_blank");
+}
+</script>
+
+</body>
+</html>
